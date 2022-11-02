@@ -2,7 +2,7 @@ class Medication{
   constructor(x_,y_){
     this.xypo = createVector(x_,y_)
     this.position = createVector(x_, y_);
-    this.liquid = color(255,90,89); //color(4,217,196);
+    this.liquid = color(75,191,191); //color(255,90,89); //color(4,217,196);
     this.angle = 0.0;
     this.sizePlug = createVector(25,110);
     this.sizeLiquid = createVector(25,90);
@@ -11,8 +11,14 @@ class Medication{
     this.changePosition = createVector(0.463,0.463*tan(radians(130-90)));
     this.move = createVector(1,1);
     this.amt = 0;
-    this.grayishBlue =  color(81,150,166);//grayishBlue 
+    this.skinY = height;
+    this.skinYmo = 1;
+    
+    //darker than 31,24,192
+    this.kleinBlue =  color(19,19,158);//31,24,192);//color(81,150,166);//grayishBlue 
     this.skin = color(0,0,0);
+    this.bgd = bgdMed;
+    this.to = color(242,225,216);
   }
   
   needle(){
@@ -58,7 +64,7 @@ class Medication{
     for(let i=1; i<7; i+=1){
     line(-7.5,+70+100/7*i,-2.5,+70+100/7*i);
     }
-    fill(255);
+    fill(bgdMed);
     rect(-22.5,+170,55,10);//the bottom of the cylinder
     pop();
   }
@@ -85,21 +91,29 @@ class Medication{
   }
   
   skinDisplay(){
-    rectMode(CENTER);
+    rectMode(CORNER);
     noStroke();
     fill(this.skin);
-    rect(width/2,height*5.5/6,width,height*1.5/6);
+    rect(0,this.skinY,width,height*2/3);
+  }
+  
+  skinMove(){
+    
+    if(this.skinY>height*2/3){
+    this.skinY -= this.skinYmo;
+    }
   }
   
   skinUnchanging(){
-    this.skin = this.grayishBlue;
+    this.skin = this.kleinBlue;
   }
   
   skinChanging(){
     if(this.amt<1){
-      this.amt+=0.005;
+      this.amt+=0.006;
     }
-    this.skin = lerpColor(this.grayishBlue, this.liquid, this.amt);
+    bgdMed = lerpColor(this.bgd, this.to,this.amt)
+    this.skin = lerpColor(this.kleinBlue, this.liquid, this.amt);
     
   }
     
