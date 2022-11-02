@@ -10,6 +10,9 @@ class Medication{
     // this.changePlug = createVector(0,-0.06);
     this.changePosition = createVector(0.463,0.463*tan(radians(130-90)));
     this.move = createVector(1,1);
+    this.amt = 0;
+    this.grayishBlue =  color(81,150,166);//grayishBlue 
+    this.skin = color(0,0,0);
   }
   
   needle(){
@@ -81,14 +84,22 @@ class Medication{
     }
   }
   
-  skin(){
-    
-    let grayishBlue = color(81,150,166);
-    
+  skinDisplay(){
     rectMode(CENTER);
     noStroke();
-    fill(grayishBlue);
+    fill(this.skin);
     rect(width/2,height*5.5/6,width,height*1.5/6);
+  }
+  
+  skinUnchanging(){
+    this.skin = this.grayishBlue;
+  }
+  
+  skinChanging(){
+    if(this.amt<1){
+      this.amt+=0.005;
+    }
+    this.skin = lerpColor(this.grayishBlue, this.liquid, this.amt);
     
   }
     

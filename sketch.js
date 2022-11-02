@@ -116,19 +116,22 @@ function draw() {
     background(255);
    med.rotation();
    med.needle();
-    //med.skin();
+    med.skinUnchanging();
+   med.skinDisplay();
   }
   else if(millis()/1000<31.5+9){
     background(255);
     med.moving();
     med.needle();
-    //med.skin();
+    med.skinUnchanging();
+   med.skinDisplay();
   }
   else if(millis()/1000<31.5+12.5){//<15){
     background(255);
     med.boost();
     med.needle();
-    //med.skin();
+    med.skinChanging();
+    med.skinDisplay();
   }
 
 /*
