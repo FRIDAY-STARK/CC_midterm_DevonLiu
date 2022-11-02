@@ -13,6 +13,7 @@ class waving{
   		//refering to the noise wave example
   		//https://p5js.org/examples/math-noise-wave.html
 		fill(255);
+		noStroke();
 
 		// I'm drawing a polygon out of the wave points
 		beginShape();

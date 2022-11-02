@@ -2,6 +2,8 @@ let charge;
 let numCharge;
 let noiseWave;
 let eyeCount;
+let med;
+let deepBlue;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -9,6 +11,8 @@ function setup() {
   numCharge= 1;
   noiseWave = new waving();
   eyeCount=0;
+  med = new Medication(width/2,200);
+  deepBlue = color(30,35,64);
 
 }
 
@@ -106,6 +110,37 @@ function draw() {
         }
     
   }
+
+
+   else if(millis()/1000<31.5+5.5){
+    background(255);
+   med.rotation();
+   med.needle();
+    //med.skin();
+  }
+  else if(millis()/1000<31.5+9){
+    background(255);
+    med.moving();
+    med.needle();
+    //med.skin();
+  }
+  else if(millis()/1000<31.5+12.5){//<15){
+    background(255);
+    med.boost();
+    med.needle();
+    //med.skin();
+  }
+
+/*
+  else if(millis()/1000>20){
+    background(255);
+    translate(0,0);
+    //med.rotation();
+    med.needle();
+
+  }
+
+*/
  
     
 
