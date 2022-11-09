@@ -8,6 +8,8 @@ let bgdMed;
 let heart;
 let hOption;
 
+let finalBGD;
+let amt;
 
 function setup() {
   
@@ -23,6 +25,8 @@ function setup() {
   deepBlue = color(30,35,64);
   heart = new HeartRate();
 
+finalBGD = color(220);
+  amt=0;
 }
 
 function draw() {
@@ -241,7 +245,7 @@ function draw() {
     heart.hbDisplay(4);
   heart.heartbeat();
   }
-  else if(millis()/1000<71.5+220*5/60-0.5){
+  else if(millis()/1000<71.5+220*5/60-0.3){
     heart.hbDisplay(12);
   heart.heartbeat();
   }
@@ -251,6 +255,13 @@ function draw() {
     strokeWeight(1);
     line(0,height/2,width,height/2);
   heart.heartbeat();
+  }
+  else if(millis()/1000>97){
+  if(amt<1){
+      amt+=0.003;
+    }
+    finalBGD = lerpColor(color(220,30), color(180,243,200,50),amt);
+    background(finalBGD);
   }
   
  

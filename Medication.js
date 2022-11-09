@@ -12,7 +12,7 @@ class Medication{
     this.move = createVector(1,1/720*height);
     this.amt = 0;
     this.skinY = height;
-    this.skinYmo = 1;
+    this.skinYmo = 1.3/720*height;
     
     //darker than 31,24,192
     this.kleinBlue =  color(19,19,158);//31,24,192);//color(81,150,166);//grayishBlue 
