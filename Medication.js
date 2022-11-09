@@ -9,7 +9,7 @@ class Medication{
     this.changeLiquid = createVector(0,-0.6);
     // this.changePlug = createVector(0,-0.06);
     this.changePosition = createVector(0.463,0.463*tan(radians(130-90)));
-    this.move = createVector(1,1);
+    this.move = createVector(1,1/720*height);
     this.amt = 0;
     this.skinY = height;
     this.skinYmo = 1;
@@ -94,12 +94,12 @@ class Medication{
     rectMode(CORNER);
     noStroke();
     fill(this.skin);
-    rect(0,this.skinY,width,height*2/3);
+    rect(0,this.skinY,width,height*1.5/3);
   }
   
   skinMove(){
     
-    if(this.skinY>height*2/3){
+    if(this.skinY>height*1.5/3){
     this.skinY -= this.skinYmo;
     }
   }
