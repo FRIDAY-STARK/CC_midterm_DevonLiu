@@ -245,7 +245,7 @@ function draw() {
     heart.hbDisplay(12);
   heart.heartbeat();
   }
-  else if(millis()/1000<71.5+220*7/60){
+  else if(millis()/1000<71.5+220*6.8/60){
     noFill();
     stroke(0);
     strokeWeight(1);
