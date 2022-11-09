@@ -241,7 +241,7 @@ function draw() {
     heart.hbDisplay(4);
   heart.heartbeat();
   }
-  else if(millis()/1000<71.5+220*5/60){
+  else if(millis()/1000<71.5+220*5/60-0.5){
     heart.hbDisplay(12);
   heart.heartbeat();
   }
